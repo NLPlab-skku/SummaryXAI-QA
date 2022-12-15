@@ -1,0 +1,54 @@
+hydra :
+  run :
+    dir : ${output_dir}
+
+datamodule:
+  data_dir : '/QSG-Transformer/data'
+  model_name : ${model_name}
+  enc_len : ${enc_len}
+  dec_len : ${dec_len}
+  batch_size : 32
+
+transformer:
+  d_model : 512
+  num_heads : 8
+  attention_dropout : 0.1
+  dropout : 0.1
+  activation_dropout : 0.1
+  num_encoder_layers : 6
+  num_decoder_layers : 6
+  vocab_size : 50265
+  pad_token_id : 1
+  aux_rate : 0.1
+
+learner:
+  d_model : 512
+  num_heads : 8
+  attention_dropout : 0.1
+  dropout : 0.1
+  activation_dropout : 0.1
+  num_encoder_layers : 6
+  num_decoder_layers : 6
+  vocab_size : 50265
+  pad_token_id : 1
+  aux_rate : 0.1
+  n_gnn : 2
+
+  learning_rate : 3e-3
+  enc_len : ${enc_len}
+  dec_len : ${dec_len}
+  model_name : ${model_name}
+  num_training_steps : ${num_training_steps}
+  exp_name : ${exp_name}
+
+exp_name : 'QSG-Transformer'
+output_dir : '/QSG-Transformer/output/${exp_name}'
+model_name : 'facebook/bart-large-xsum'
+enc_len : 142
+dec_len : 48
+seed : 23
+patience : 5
+num_gpus : 1
+devices : 0
+num_training_steps : 100000
+check_val_every_n_epoch : 5
