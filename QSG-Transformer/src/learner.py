@@ -123,7 +123,7 @@ class Learner(LightningModule):
 
         scheduler = get_cosine_schedule_with_warmup(
             optimizer,
-            num_warmup_steps = int(self.cfg.num_training_steps * 0.1),
+            num_warmup_steps = int(self.cfg.num_training_steps * 0.05), #minor change in hyperparameter
             num_training_steps = self.cfg.num_training_steps
         )
 
