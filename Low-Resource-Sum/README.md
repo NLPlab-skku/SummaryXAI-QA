@@ -9,7 +9,7 @@ This repository contains code corresponding to the paper **Efficient Framework f
 * datasets
 * rouge-score
 
-## **datasets**
+## **Datasets**
 The required datasets are available as datasets supported by huggingface or can be downloaded from the dataset open source.
 
 ## **Running**
