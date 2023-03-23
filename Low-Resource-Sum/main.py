@@ -2,7 +2,7 @@
 
 from util import *
 from transformers import AdamW, get_cosine_with_hard_restarts_schedule_with_warmup, AutoConfig, AutoTokenizer
-from model import Model, Model_copy
+from model import Model
 
 logger = logging.getLogger(__name__)
 
@@ -555,7 +555,7 @@ def main():
         # Training
         if args.do_train:
             logging.info("Loading model...")
-            model = Model_copy(args)
+            model = Model(args)
             logging.info("Loading is done!")
             Metatrain(args, model, source_dataset_name_list, target_dataset_name)
 
@@ -563,13 +563,13 @@ def main():
         if args.do_test:
             if Path(args.output_dir / "pytorch_model.bin").exists() and args.num_data==0:
 
-                model = Model_copy(args)
+                model = Model(args)
                 logging.info("Loading model...")
                 model.load_state_dict(torch.load(Path(args.output_dir / "pytorch_model.bin")))
                 logging.info("Loading is done!")
                 fine_tune(args, model, target_dataset_name,10)
 
-                model = Model_copy(args)
+                model = Model(args)
                 logging.info("Loading model...")
                 model.load_state_dict(torch.load(Path(args.output_dir / "pytorch_model.bin")))
                 logging.info("Loading is done!")
