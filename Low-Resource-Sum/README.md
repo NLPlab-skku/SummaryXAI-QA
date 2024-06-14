@@ -1,6 +1,7 @@
 # **Efficient Framework for Low-Resource Abstractive Summarization by Meta-Transfer Learning and Pointer-Generator Networks**
 
 This repository contains code corresponding to the paper **Efficient Framework for Low-Resource Abstractive Summarization by Meta-Transfer Learning and Pointer-Generator Networks** by Taehun Huh and Youngjoong Ko.
+[paper](https://www.sciencedirect.com/science/article/pii/S0957417423015312)
 
 ## **Requirements**
 * python>=3.7
